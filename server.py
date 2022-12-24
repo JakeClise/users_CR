@@ -28,6 +28,15 @@ def create_user():
     User.save(data)
     return redirect('/go-users')
 
+@app.route('/view/<int:id>')
+def get_one_user(id):
+    data = {
+        "id":id
+    }
+    return render_template('one_user.html',user=User.get_one_user(data))
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
