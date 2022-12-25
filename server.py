@@ -35,6 +35,10 @@ def get_one_user(id):
     }
     return render_template('one_user.html',user=User.get_one_user(data))
 
+@app.route('/edit')
+def edit_user():
+    return render_template('edit_user.html')
+
 
 
 
