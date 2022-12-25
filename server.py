@@ -35,9 +35,17 @@ def get_one_user(id):
     }
     return render_template('one_user.html',user=User.get_one_user(data))
 
-@app.route('/edit')
-def edit_user():
-    return render_template('edit_user.html')
+@app.route('/edit/<int:id>')
+def go_edit_user(id):
+    data = {
+        "id":id
+    }
+    return render_template('edit_user.html',user=User.get_one_user(data))
+
+@app.route('/edit-one-user', methods=["POST"])
+def update_user():
+    User.update(request.form)
+    return redirect('/go-users')
 
 
 
