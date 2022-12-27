@@ -47,6 +47,15 @@ def update_user():
     User.update(request.form)
     return redirect('/go-users')
 
+@app.route('/delete/<int:id>')
+def delete_user(id):
+    users = User.get_all()
+    data = {
+        "id":id
+    }
+    return render_template('users.html', user=User.drop_user(data), users=users)
+
+
 
 
 

@@ -35,3 +35,7 @@ class User:
         return connectToMySQL('users_cr_schema').query_db(query, data)
     
 
+    @classmethod
+    def drop_user(cls, data):
+        query = "DELETE FROM users WHERE id = (%(id)s)";
+        return connectToMySQL('users_cr_schema').query_db(query, data)
