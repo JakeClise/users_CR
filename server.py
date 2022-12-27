@@ -49,11 +49,11 @@ def update_user():
 
 @app.route('/delete/<int:id>')
 def delete_user(id):
-    users = User.get_all()
     data = {
         "id":id
     }
-    return render_template('users.html', user=User.drop_user(data), users=users)
+    User.drop_user(data)
+    return redirect('/go-users')
 
 
 
