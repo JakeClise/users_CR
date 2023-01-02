@@ -18,6 +18,8 @@ def go_create():
 
 @app.route('/create-user', methods=["POST"])
 def create_user():
+    if not User.validate_user(request.form):
+        return redirect('/go-create')
     data = {
         "first_name": request.form['first_name'],
         "last_name": request.form['last_name'], 

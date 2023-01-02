@@ -8,6 +8,17 @@
     <title>Create User</title>
 </head>
 <body class="bg-dark">
+    <div class="text-primary text-center text-danger">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    </div>
+
     <div class="text-center mt-5">
         <h2 class="text-primary">Enter your information below!</h2>
         <form action="/create-user" method="post">
